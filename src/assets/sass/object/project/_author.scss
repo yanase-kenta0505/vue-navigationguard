@@ -1,0 +1,20 @@
+@charset 'UTF-8';
+@use "../../inc" as *;
+/*
+  Author
+*/
+.p-author {
+  margin-top: 1rem;
+  border: 1px solid #ddd;
+
+  &__title {
+    background-color: $colorMain;
+    color: #fff;
+    display: inline-block;
+    padding: 0.25rem 1rem;
+  }
+
+  &__name {
+    padding: 1rem;
+  }
+}

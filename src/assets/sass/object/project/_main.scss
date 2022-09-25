@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+@use "../../inc" as *;
+/*
+  Button
+*/
+
+.p-main {
+  background-color: $colorWhite;
+  overflow: hidden;
+  &__inner {
+    padding: 3rem 0 5rem;
+    @include mq(lg) {
+      padding: 5.5rem 0 12.5rem;
+    }
+  }
+
+  &__cat {
+    display: flex;
+  }
+
+  &__catItem {
+    width: 50%;
+    text-align: center;
+    background-color: $colorGray;
+    color: $colorWhite;
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+    @include mq(lg) {
+      padding: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    &.is-tab {
+      font-weight: 700;
+      background-color: $colorWhite;
+      color: $colorBlack;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $colorAccent;
+      }
+    }
+  }
+}

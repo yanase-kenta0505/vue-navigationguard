@@ -1,0 +1,50 @@
+//====================================
+//  mixlupin
+//====================================
+
+@mixin boxCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin icoPosition() {
+  content: "";
+  position: absolute;
+  margin: auto;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin icoInline() {
+  content: "";
+  display: inline-block;
+  position: relative;
+}
+
+@mixin boxCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin icoLabel() {
+  font-size: 10px;
+  display: inline-block;
+  position: relative;
+  padding: 4px 10px 5px;
+  line-height: 1;
+}
+
+//====================================
+//  setting
+//====================================
+
+$imgPath: "/images/";
+// 例）background: url('#{$imgPath}bg.png')

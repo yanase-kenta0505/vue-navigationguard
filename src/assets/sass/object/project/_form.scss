@@ -1,0 +1,410 @@
+@charset 'UTF-8';
+@use "../../inc" as *;
+/*
+  Card
+*/
+
+.p-form {
+  border: 1px solid $colorGray;
+  padding: 2.5rem 1rem;
+  margin-top: 1.5rem;
+  @include mq(lg) {
+    margin-top: 2.5rem;
+    padding: 3.5rem;
+  }
+  dl {
+    padding-top: 1.5rem;
+    @include mq(lg) {
+      display: flex;
+      padding-top: 2rem;
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid #e8e8e8;
+    }
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
+      @include mq(lg) {
+        padding-bottom: 2rem;
+      }
+    }
+
+    dt {
+      margin-right: 1rem;
+      font-weight: 700;
+      @include mq(lg) {
+        width: 35%;
+      }
+    }
+
+    dd {
+      margin-top: 1rem;
+      @include mq(lg) {
+        margin-top: 0;
+        width: 65%;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background-color: #f7f7f7;
+      border: transparent;
+      padding: 1rem;
+    }
+    ::placeholder {
+      color: #b6b6b6;
+    }
+  }
+
+  .req {
+    background-color: $colorAccent;
+    color: $colorWhite;
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 2px 0.75rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+  }
+
+  .any {
+    background-color: transparent;
+    border: 1px solid $colorGray;
+    padding: 2px 0.75rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin-right: 1rem;
+  }
+
+  .note {
+    color: #8d8d8d;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    @include mq(lg) {
+      font-size: 0.875rem;
+    }
+  }
+
+  .image {
+    color: $colorAccent;
+    border: 1px solid $colorAccent;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+  }
+
+  .post-adress {
+    dd {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 1.25rem;
+        margin-right: 10px;
+        @include mq(lg) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .radio-button {
+    dd {
+      // @include mq(lg) {
+      //   display: flex;
+      //   align-items: center;
+      // }
+
+      span {
+        display: inline-block;
+
+        &:not(:last-child) {
+          @include mq(lg) {
+            margin-right: 1.5rem;
+          }
+        }
+      }
+    }
+
+    input {
+      width: auto;
+    }
+  }
+
+  .check-block {
+    p {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    dd {
+      & > div {
+        & > div {
+          display: flex;
+          flex-wrap: wrap;
+          span {
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            @include mq(lg) {
+              margin-top: 0;
+            }
+          }
+        }
+
+        &:not(:first-child) {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+
+    input {
+      width: auto;
+    }
+  }
+
+  .terms-box {
+    text-align: left;
+    border: 1px solid $colorGray;
+    margin: 2rem 0 2rem;
+    padding: 1rem;
+    max-height: 160px;
+    overflow-y: scroll;
+    @include mq(lg) {
+      padding: 1.5rem;
+      max-width: 850px;
+      max-height: 280px;
+      margin: 2rem auto 3rem;
+    }
+
+    a {
+      color: $primary-text-color;
+    }
+
+    span {
+      display: block;
+    }
+
+    .block {
+      display: block;
+      margin-top: 1rem;
+      @include mq(lg) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  .rental {
+    dd {
+      display: flex;
+      align-items: center;
+      span {
+        display: inline-block;
+        margin-right: 1rem;
+      }
+
+      input {
+        width: 100px;
+      }
+    }
+  }
+
+  .period {
+    dd {
+      & > span {
+        display: flex;
+        align-items: center;
+
+        & > span {
+          position: relative;
+          display: inline-block;
+          &::before {
+            content: "~";
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: auto 0;
+            left: 189px;
+          }
+
+          & > span {
+            margin-right: 3rem;
+            position: relative;
+            display: inline-block;
+            @include mq(lg) {
+              margin-right: 6rem;
+            }
+
+            &:nth-of-type(1) {
+              margin-top: 1rem;
+              @include mq(lg) {
+                margin-top: 0;
+              }
+            }
+
+            &:nth-of-type(2) {
+              margin-top: 1rem;
+              @include mq(lg) {
+                margin-top: 0;
+              }
+            }
+
+            &::before {
+              position: absolute;
+              content: "";
+              height: 100%;
+              display: inline-block;
+              width: 3rem;
+              background-color: $colorAccent;
+              right: -3rem;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 0;
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              background: url(../../assets/images/under/form-icon-calendar.svg) no-repeat center center;
+              background-size: contain;
+              width: 18px;
+              height: 19px;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 1;
+              right: -33px;
+            }
+          }
+        }
+      }
+
+      input {
+        width: 120px;
+      }
+
+      .check {
+        display: inline-block;
+        margin-top: 1rem;
+        input {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .button-wrap {
+    text-align: center;
+  }
+
+  .contact-button {
+    width: 100%;
+    padding: 1rem;
+    position: relative;
+    @include mq(lg) {
+      max-width: 420px;
+      padding: 1.5rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      background: url(../../assets/images/common/arrow-white.svg) no-repeat;
+      background-size: contain;
+      width: 12px;
+      height: 9px;
+      right: 2.5rem;
+    }
+  }
+
+  .inner-form {
+    margin-top: 2rem;
+    @include mq(lg) {
+      margin-top: 2.5rem;
+    }
+
+    & > h3 {
+      @include mq(lg) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    dl:nth-of-type(1) {
+      border-top: none;
+    }
+  }
+
+  .button-wrap {
+    margin-top: 1.5rem;
+    text-align: center;
+    @include mq(lg) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.p-form__wrap {
+  margin-top: 2rem;
+  @include mq(lg) {
+  }
+
+  h3 {
+    @include mq(lg) {
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+}
+
+.p-form__innerText {
+  margin-bottom: 1rem;
+}
+
+.p-form__endText {
+  text-align: center;
+}
+
+.p-form__checkButton {
+  text-align: center;
+}
+
+.p-form__button-wrap {
+  text-align: center;
+  margin-top: 1.75rem;
+  @include mq(lg) {
+    margin-top: 2.5rem;
+  }
+}
+
+.p-form__button {
+  color: $colorWhite;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: $colorAccent;
+  border-radius: 30px;
+  display: inline-block;
+  width: 100%;
+  @include mq(lg) {
+    padding: 1rem;
+    max-width: 280px;
+  }
+}
+
+/* ==============================
+   mw wp form確認画面
+  ============================== */
+.mw_wp_form_confirm {
+  .conf-hide {
+    display: none;
+  }
+
+  .p-form__button-wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    & > * {
+      width: calc(50% - 1rem) !important;
+    }
+  }
+}

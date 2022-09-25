@@ -1,0 +1,180 @@
+@use "../inc" as *;
+//====================================
+//  JS
+//====================================
+.js-tab .js-tab__content {
+  position: relative;
+}
+
+.js-tab .js-tab__content > * {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  z-index: 1;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.js-tab .js-tab__content > *.is-tab {
+  position: relative;
+  opacity: 1;
+  z-index: 2;
+  height: auto;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.md-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 9999;
+}
+
+.md-contents {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: auto;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+.md-inner {
+  padding: 1.5rem;
+  background: #fff;
+  height: auto;
+  @include mq(lg) {
+    padding: 4rem;
+  }
+}
+
+.md-xmark {
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  width: 25px;
+  height: 22px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.md-xmark span {
+  height: auto;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.md-xmark span:nth-of-type(1) {
+  top: 0;
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.md-xmark span:nth-of-type(2) {
+  bottom: 0;
+  transform: translateY(-10px) rotate(45deg);
+}
+
+.modal-mainContent {
+  @include mq(lg) {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .button-wrap {
+    text-align: center;
+  }
+}
+
+.modal-mainInner {
+  margin-bottom: 2rem;
+  @include mq(lg) {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  figure {
+    @include mq(lg) {
+      width: 35%;
+      margin-right: 3rem;
+    }
+  }
+
+  & > div {
+    margin-top: 1.5rem;
+    @include mq(lg) {
+      width: 65%;
+      max-width: 600px;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid $colorAccent;
+      @include mq(lg) {
+        font-size: 1.5rem;
+      }
+    }
+
+    dl {
+      padding: 0.5rem 0;
+      border-top: 1px solid #e8e8e8;
+      @include mq(lg) {
+        display: flex;
+        padding: 1rem 0;
+      }
+      dt,
+      dd {
+        color: #797979;
+      }
+      dt {
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        @include mq(lg) {
+          font-size: 1rem;
+          width: 45%;
+          margin-bottom: 0;
+        }
+      }
+
+      dd {
+        font-size: 0.875rem;
+        @include mq(lg) {
+          width: 55%;
+        }
+        a {
+          color: $colorAccent;
+        }
+      }
+
+      &:nth-of-type(1) {
+        border-top: none;
+      }
+    }
+  }
+}
+
+.l-footer {
+  margin-top: 3000px;
+}

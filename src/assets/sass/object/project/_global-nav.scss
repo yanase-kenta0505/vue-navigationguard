@@ -1,0 +1,126 @@
+@charset 'UTF-8';
+@use "../../inc" as *;
+@forward "hamburger";
+/*
+  Global Nav
+*/
+$positionNav: right; // right or left
+
+// position
+$translate: 110%;
+$shadow-position: -1px;
+$left: auto;
+$right: 0;
+@if $positionNav == left {
+  $translate: -110%;
+  $shadow-position: 2px;
+  $left: 0;
+  $right: auto;
+}
+
+.p-globalNav {
+  position: fixed;
+  top: 0;
+  right: $right;
+  bottom: 0;
+  left: $left;
+  z-index: 1;
+  padding: 3em 0 0;
+  width: 100%;
+  height: 120%;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX($translate);
+
+  @include mq(md) {
+    position: static;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    background-color: transparent;
+    transform: translateX(0);
+    font-size: 0;
+  }
+
+  & > li {
+    display: block;
+    @include mq(md) {
+      display: inline-block;
+      font-size: medium;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &.current-menu-item a {
+      background-color: #1a2327;
+      color: #fff;
+
+      @include mq(md) {
+        background-color: transparent;
+        color: $hint-text-color;
+      }
+
+      &::after {
+        @include mq(md) {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  & a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: $colorMain;
+    text-decoration: none;
+    font-size: 1.25rem;
+
+    @include mq(md) {
+      position: relative;
+      display: block;
+      padding: 1rem;
+      text-decoration: none;
+      overflow: hidden;
+      color: $colorMain;
+      font-weight: bold;
+
+      &:hover {
+        background-color: $colorMain;
+        color: inherit;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        bottom: 25px;
+        width: 100%;
+        height: 1px;
+        background-color: $colorMain;
+        transition: transform 0.4s ease-in-out;
+        transform: scale(0, 1);
+        transform-origin: right top;
+      }
+
+      &:hover:after {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
+
+    &:hover {
+      background-color: #1a2327;
+      color: #fff;
+    }
+  }
+}
+.is-drawerActive .p-globalNav {
+  transform: translateX(0);
+}
+
+.is-resize .p-globalNav {
+  transition: none;
+}

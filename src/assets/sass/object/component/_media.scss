@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+@use "../../inc" as *;
+/*
+  Media
+*/
+
+.c-media {
+  overflow: hidden;
+  display: block;
+
+  &__body {
+  }
+
+  &__thumbnail {
+    float: left;
+
+    img {
+      width: 100%;
+    }
+  }
+}

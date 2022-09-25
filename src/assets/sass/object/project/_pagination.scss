@@ -1,0 +1,136 @@
+@charset 'UTF-8';
+@use "sass:math";
+@use "../../inc" as *;
+/*
+  Pagination
+*/
+
+.pagenation {
+  margin: 2rem 0;
+  text-align: center;
+  @include mq(lg) {
+    margin: 3rem 0;
+  }
+}
+
+.page-numbers {
+  text-align: center;
+  display: inline-block;
+  width: set-size(48px);
+  height: set-size(48px);
+  padding: set-size(math.div(48px - 20px, 2));
+  border-radius: 50%;
+  background-color: #fff;
+  text-decoration: none;
+  color: $colorAccent;
+  line-height: 1;
+
+  font-weight: bold;
+  vertical-align: top;
+  font-family: $font-set-en;
+
+  @include mq(lg) {
+    width: set-size(62px);
+    height: set-size(62px);
+    padding: set-size(math.div(62px - 20px, 2));
+  }
+
+  &[href]:hover {
+    opacity: 0.5;
+  }
+  &.current {
+    background-color: $colorWhite;
+    color: $colorAccent;
+    border: 1px solid $colorAccent;
+  }
+
+  &.prev,
+  &.next {
+    position: relative;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: set-size(8px);
+      height: set-size(8px);
+      transform: rotate(45deg);
+      transition: all 0.3s ease-in-out;
+    }
+    &:before {
+      background-color: $colorAccent;
+    }
+    &:after {
+      background-color: #fff;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &.prev {
+    &:before,
+    &:after {
+      right: 0;
+    }
+
+    &:before {
+      left: set-size(4px);
+    }
+    &:after {
+      left: set-size(12px);
+    }
+  }
+
+  &.next {
+    &:before,
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      right: set-size(4px);
+    }
+    &:after {
+      right: set-size(12px);
+    }
+  }
+
+  & + & {
+    margin-left: 0.5rem;
+
+    @include mq(lg) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.nav {
+  &-links {
+    overflow: hidden;
+  }
+
+  &-previous,
+  &-next {
+    width: 49%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    a:first-line {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-previous {
+    float: left;
+  }
+  &-next {
+    float: right;
+    text-align: right;
+  }
+}

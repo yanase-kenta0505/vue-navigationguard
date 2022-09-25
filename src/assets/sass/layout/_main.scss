@@ -1,0 +1,71 @@
+@charset 'UTF-8';
+@use "../inc" as *;
+/*
+  Main
+-----------------------------------------------------*/
+
+.l-main {
+  clear: both;
+}
+
+@include mq(md) {
+}
+
+// sp,pcの切り替え
+.sp-hide {
+  display: none;
+  @include mq(md) {
+    display: inline-block;
+  }
+}
+.pc-hide {
+  display: inline-block;
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(21, 21, 21);
+}
+
+.textAnimation:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+@keyframes showText {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.textAnimation span {
+  display: inline-block;
+  font-family: roma-outline, sans-serif;
+  font-weight: 400;
+  font-size: 5rem;
+  font-style: normal;
+  color: #fff;
+  line-height: 1;
+}
+
+.textAnimation > span {
+  overflow: hidden;
+}
+
+.textAnimation > span > span {
+  display: inline-block;
+  animation: showText 0.875s ease backwards;
+}

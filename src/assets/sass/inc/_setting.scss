@@ -1,0 +1,108 @@
+@charset 'UTF-8';
+// @use "../inc/mixin" as *;
+@use "../inc/color-book" as *;
+
+// -----------------------------------
+//  Layout Settings
+//------------------------------------
+
+// Contentの幅
+$content-width: 1080px !default;
+
+// ブレークポイント
+$breakpoints: (
+  xxs: 0,
+  xs: 360px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  lx: 1200px,
+  xxl: 1450px,
+  xxxl: 1680px,
+) !default;
+
+//====================================
+//  Color Setings
+//====================================
+
+// ベースカラー
+$colorBase: #ddd;
+
+// メインカラー
+$colorMain: #006edb;
+
+// サブカラー
+$colorSub: #f5f3eb;
+
+//　アクセントカラー
+$colorAccent: #a68021;
+
+// ホワイト
+$colorWhite: #fff;
+
+// ブラック
+$colorBlack: #171717;
+
+// ライトグレー
+$colorLightGray: #f5f5f5;
+
+// グレー
+$colorGray: #919191;
+
+// ダークグレー
+$colorDarkGray: #808080;
+
+// ベージュ
+$colorBeige: #e7e7e1;
+
+// ライトベージュ
+$colorLightBeige: #fcfbf5;
+
+// テキストの色
+$primary-text-color: #2b2b2b;
+
+// セカンダリーカラー
+$secondary-text-color: $md-blue-grey-500;
+
+// 補足などの色
+$hint-text-color: $md-blue-grey-300;
+
+// リンクカラー
+$link-text-color: $md-cyan-500;
+
+// ロールオーバーーカラー
+$hover-text-color: $md-cyan-300;
+
+//====================================
+//  Typeface
+//====================================
+
+// @font-face {
+//   font-family: 'bourtonLine';
+//   src: url('/assets/fonts/bourtonLineM.woff') format('woff');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+//$font-set-primary : set-font-family(1) !default;
+$font-set-primary: "M PLUS 1p", "Noto Sans JP", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic",
+  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, sans-serif;
+// $font-set-primary: "Noto Serif JP", "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+$font-set-serif: "Shippori Mincho", serif;
+$font-set-en: "bourtonLine";
+
+// 1 : Roboto, Noto sans
+// 2 : Baskerville, 游ゴシック
+// 3 : Open Sans, Noto sans
+// 4 : Lato, Noto sans
+// 5 : Roboto, 游ゴシック
+// 6 : Baskerville, Noto sans
+// 7 : Noto Sans
+
+$base: 13px;
+
+//====================================
+//  cubic-bezier
+//====================================
+$easing-opera: cubic-bezier(0.82, 0, 0.16, 1);
+$easing-shibata: cubic-bezier(0.22, 0, 0.53, 1);
